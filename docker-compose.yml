@@ -8,12 +8,12 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=postgresql://refferq:refferq@db:5432/refferq
-      - JWT_SECRET=${JWT_SECRET:-change-me-to-a-random-string-min-32-chars}
-      - RESEND_API_KEY=${RESEND_API_KEY:-}
-      - RESEND_FROM_EMAIL=${RESEND_FROM_EMAIL:-Refferq <onboarding@resend.dev>}
-      - ADMIN_EMAILS=${ADMIN_EMAILS:-}
-      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
+      - DATABASE_URL=postgresql://postgres:c6o8nqkdmgpngvla@nextra-money-apps-nextramoneydata-20d36c:5432/postgres
+      - JWT_SECRET=4a9f6d2b8c5e1a3f7d90b2c4e6f8a0b3c5d7e9f1a2b3c4d5e6f7a8b9c0d1e2f3
+      - RESEND_API_KEY=re_6WPdwsKR_K3jdzMwfcEsV8igz3rLLfMju
+      - RESEND_FROM_EMAIL=notify@mails.nextra.money
+      - ADMIN_EMAILS=iam@rks.ad
+      - NEXT_PUBLIC_APP_URL=partners.nextra.money
     depends_on:
       db:
         condition: service_healthy
@@ -25,9 +25,9 @@ services:
     container_name: refferq-db
     restart: unless-stopped
     environment:
-      - POSTGRES_USER=refferq
-      - POSTGRES_PASSWORD=refferq
-      - POSTGRES_DB=refferq
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=c6o8nqkdmgpngvla
+      - POSTGRES_DB=postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
