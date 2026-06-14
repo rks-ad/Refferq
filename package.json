@@ -4,6 +4,11 @@
   "description": "Open-source affiliate marketing platform with comprehensive tracking, commission management, and payout automation. Built with Next.js, TypeScript, and PostgreSQL.",
   "author": "Refferq Team <hello@refferq.com>",
   "license": "MIT",
+  
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  
   "repository": {
     "type": "git",
     "url": "https://github.com/refferq/refferq.git"
