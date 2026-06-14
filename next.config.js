@@ -1,16 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Output standalone build for Docker deployments
   output: 'standalone',
-  // Enable Turbopack (default in Next.js 16)
-  turbopack: {},
-  // Keep webpack config for fallback compatibility
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"]
-    });
-    return config;
+  experimental: {
+    // Remove if causing issues
+  },
+  // Add this for better session handling
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+        ],
+      },
+    ];
   },
 };
 
